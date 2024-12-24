@@ -1,7 +1,3 @@
-You're absolutely right again—users need to set up a Supabase project first. Let’s clarify that step and highlight the presence of the `.env.example` file as a helpful starting point. Here's the revised README:
-
----
-
 # Next.js App Template with Supabase Auth and ShadCN/UI Theme Provider
 
 This project is a boilerplate for quickly starting a Next.js application with integrated **Supabase Auth** (email/password + Google authentication) and **ShadCN/UI** theme provider.
