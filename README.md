@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+You're absolutely right again—users need to set up a Supabase project first. Let’s clarify that step and highlight the presence of the `.env.example` file as a helpful starting point. Here's the revised README:
 
-## Getting Started
+---
 
-First, run the development server:
+# Next.js App Template with Supabase Auth and ShadCN/UI Theme Provider
 
+This project is a boilerplate for quickly starting a Next.js application with integrated **Supabase Auth** (email/password + Google authentication) and **ShadCN/UI** theme provider.
+
+## 🚀 Features
+
+- **Authentication**:  
+  Secure and user-friendly login using Supabase for:
+    - Email and password
+    - Google OAuth integration
+
+- **Theming**:  
+  Built-in light and dark mode support, powered by **ShadCN/UI**.
+
+- **Extendable and Ready-to-Go**:  
+  Includes preconfigured tools and best practices for rapid development and scalability.
+
+---
+
+## 🛠️ Technologies Used
+
+- [Next.js](https://nextjs.org)
+- [Supabase](https://supabase.com) (Database and Authentication)
+- [ShadCN/UI](https://shadcn.dev) (Theme provider)
+- [Tailwind CSS](https://tailwindcss.com) (Styling)
+
+---
+
+## 📦 Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Prepare Environment Variables**:  
+   Copy the `.env.example` file to `.env.local`:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   Update the placeholders in `.env.local` after setting up your Supabase project (explained in the **Configuration** section).
+
+4. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+---
+
+## ⚙️ Configuration
+
+### 1. Create a Supabase Project:
+- Go to [Supabase](https://supabase.com) and create a new project.
+- Once your project is created, go to **Project Settings** → **API**, and copy the following values:
+    - `Project URL` → Replace `<your_supabase_url>`
+    - `Anon Key` → Replace `<your_supabase_anon_key>`
+
+### 2. Update Environment Variables:
+Open the `.env.local` file and paste the values from your Supabase project:
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+   ```
+
+### 3. Enable Authentication:
+- In the Supabase dashboard, go to **Authentication** → **Settings**, and enable:
+    - **Email/Password Authentication**
+    - **Google OAuth Authentication**
+- For Google OAuth:
+    - Create credentials in the [Google Cloud Console](https://console.cloud.google.com).
+    - Use the callback URL provided in Supabase.
+
+### 4. Customize ShadCN/UI Theme:
+- Modify the theme in `src/app/layout.tsx` as needed.
+- Adjust Tailwind configurations in `tailwind.config.js`.
+
+### 5. Deploy the App:
+- Use platforms like [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com).
+- Add the `.env.local` values as environment variables in the hosting platform.
+
+---
+
+## 🧑‍💻 Development
+
+To start development, use the following command:
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the development server at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
 
-## Learn More
+This project is licensed under the [MIT License](LICENSE).
 
-To learn more about Next.js, take a look at the following resources:
+**MIT License**:  
+A permissive open-source license that allows you to use, modify, distribute, and sublicense the project, even in proprietary applications. It requires preserving the original copyright notice and license in copies or significant portions of the project but imposes no further restrictions.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🙌 Acknowledgments
 
-## Deploy on Vercel
+- [Supabase Documentation](https://supabase.com/docs)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [ShadCN/UI Guide](https://shadcn.dev)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Happy coding! 💻✨
+
+---
+
+### Changes Made:
+1. **Added `.env.example** file setup instructions in the installation section.
+2. Explained that users need to create a Supabase project and obtain the required values from there.
+3. Kept all configuration details in the **Configuration** section for clarity.
+
+Let me know if this now works seamlessly! 😊
