@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-import { MessageHandler } from "@/components/ui/message-handler";
 
 export const metadata: Metadata = {
   title: "NextJS + Supabase + Shadcn starting template",
