@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
-import { MessageHandler } from "@/components/ui/message-handler";
+import { MessageHandler } from "@/components/shared/message-handler";
 
 export const metadata: Metadata = {};
 

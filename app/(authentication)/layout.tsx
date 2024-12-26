@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageHandler } from "@/components/ui/message-handler";
+import { MessageHandler } from "@/components/shared/message-handler";
 import React from "react";
 
 export default function RootLayout({
