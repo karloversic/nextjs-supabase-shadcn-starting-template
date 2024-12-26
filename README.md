@@ -4,14 +4,14 @@ You're absolutely right again—users need to set up a Supabase project first. L
 
 # Next.js App Template with Supabase Auth and ShadCN/UI Theme Provider
 
-This project is a boilerplate for quickly starting a Next.js application with integrated **Supabase Auth** (email/password + Google authentication) and **ShadCN/UI** theme provider.
+This project is a boilerplate for quickly starting a Next.js application with integrated **Supabase Auth** (email/password and Google authentication) and **ShadCN/UI** theme provider.
 
 ## 🚀 Features
 
 - **Authentication**:  
   Secure and user-friendly login using Supabase for:
     - Email and password
-    - Google OAuth integration
+    - ~~Google OAuth integration~~ (in work, come back in a few days)
 
 - **Theming**:  
   Built-in light and dark mode support, powered by **ShadCN/UI**.
@@ -68,7 +68,7 @@ This project is a boilerplate for quickly starting a Next.js application with in
     - `Anon Key` → Replace `<your_supabase_anon_key>`
 
 ### 2. Update Environment Variables:
-Open the `.env.local` file and paste the values from your Supabase project:
+Create the `.env.local` file and paste the values from your Supabase project:
    ```bash
    NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
@@ -107,9 +107,6 @@ This will start the development server at [http://localhost:3000](http://localho
 
 This project is licensed under the [MIT License](LICENSE).
 
-**MIT License**:  
-A permissive open-source license that allows you to use, modify, distribute, and sublicense the project, even in proprietary applications. It requires preserving the original copyright notice and license in copies or significant portions of the project but imposes no further restrictions.
-
 ---
 
 ## 🙌 Acknowledgments
@@ -122,11 +119,3 @@ A permissive open-source license that allows you to use, modify, distribute, and
 
 Happy coding! 💻✨
 
----
-
-### Changes Made:
-1. **Added `.env.example** file setup instructions in the installation section.
-2. Explained that users need to create a Supabase project and obtain the required values from there.
-3. Kept all configuration details in the **Configuration** section for clarity.
-
-Let me know if this now works seamlessly! 😊
