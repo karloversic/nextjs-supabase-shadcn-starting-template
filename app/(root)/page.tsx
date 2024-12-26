@@ -18,14 +18,18 @@ const LandingPage = () => {
           hours.
         </p>
         <div className="flex gap-4 justify-center mb-12">
-          <Button className="gap-2" size="lg">
-            <Github className="w-5 h-5" />
-            Get Started
-          </Button>
-          <Button variant="outline" size="lg" className="gap-2">
-            <Code className="w-5 h-5" />
-            View Demo
-          </Button>
+          <Link href="https://github.com/karloversic/nextjs-supabase-shadcn-starting-template">
+            <Button className="gap-2" size="lg">
+              <Github className="w-5 h-5" />
+              Get Started
+            </Button>
+          </Link>
+          <Link href="https://nextjs-supabase-shadcn-starting-template.vercel.app">
+            <Button variant="outline" size="lg" className="gap-2">
+              <Code className="w-5 h-5" />
+              View Demo
+            </Button>{" "}
+          </Link>
         </div>
         <div className="bg-muted p-4 rounded-lg max-w-xl mx-auto">
           <code className="text-sm">

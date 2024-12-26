@@ -3,6 +3,7 @@
 import { Moon, Sun, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
+import Link from "next/link";
 
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
@@ -43,16 +44,22 @@ const Navbar = () => {
                 <Sun className="w-5 h-5" />
               )}
             </Button>
-            <Button variant="ghost" className="dark:hover:bg-neutral-800">
-              Documentation
-            </Button>
-            <Button
-              variant="outline"
-              className="dark:border-neutral-700 dark:hover:bg-neutral-800"
-            >
-              Sign In
-            </Button>
-            <Button>Sign Up</Button>
+            <Link href="https://github.com/karloversic/nextjs-supabase-shadcn-starting-template">
+              <Button variant="ghost" className="dark:hover:bg-neutral-800">
+                Documentation
+              </Button>
+            </Link>
+            <Link href="/login">
+              <Button
+                variant="outline"
+                className="dark:border-neutral-700 dark:hover:bg-neutral-800"
+              >
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button>Sign Up</Button>
+            </Link>
           </div>
         </div>
       </div>
