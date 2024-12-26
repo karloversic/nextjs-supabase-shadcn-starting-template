@@ -1,7 +1,7 @@
 "use client";
 
 import { MessageHandler } from "@/components/shared/message-handler";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function RootLayout({
   children,
@@ -10,7 +10,10 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <MessageHandler />
+      <Suspense>
+        <MessageHandler />
+      </Suspense>
+
       {children}
     </div>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
 import { MessageHandler } from "@/components/shared/message-handler";
@@ -19,7 +19,9 @@ export default async function Layout({
   return (
     <>
       <Navbar />
-      <MessageHandler />
+      <Suspense>
+        <MessageHandler />
+      </Suspense>
 
       {children}
       <Footer />
