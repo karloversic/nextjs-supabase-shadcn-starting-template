@@ -2,6 +2,8 @@ import React from "react";
 import { Metadata } from "next";
 import { createClient } from "@/utils/supabase/server";
 import { MessageHandler } from "@/components/shared/message-handler";
+import Navbar from "@/components/shared/navbar";
+import Footer from "@/components/shared/footer";
 
 export const metadata: Metadata = {};
 
@@ -16,12 +18,11 @@ export default async function Layout({
   if (data) console.log(data.user);
   return (
     <>
+      <Navbar />
       <MessageHandler />
-      <div className="min-h-screen bg-background text-foreground">
-        <div className="flex h-screen flex-col items-center justify-center bg-background text-foreground">
-          {children}
-        </div>
-      </div>
+
+      {children}
+      <Footer />
     </>
   );
 }
