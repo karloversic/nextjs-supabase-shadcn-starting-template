@@ -101,10 +101,7 @@ This will start the development server at [http://localhost:3000](http://localho
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE).
-
-**MIT License**:  
-A permissive open-source license that allows you to use, modify, distribute, and sublicense the project, even in proprietary applications. It requires preserving the original copyright notice and license in copies or significant portions of the project but imposes no further restrictions.
+This project is licensed under the [MIT License](LICENSE)
 
 ---
 
@@ -120,9 +117,3 @@ Happy coding! 💻✨
 
 ---
 
-### Changes Made:
-1. **Added `.env.example** file setup instructions in the installation section.
-2. Explained that users need to create a Supabase project and obtain the required values from there.
-3. Kept all configuration details in the **Configuration** section for clarity.
-
-Let me know if this now works seamlessly! 😊
