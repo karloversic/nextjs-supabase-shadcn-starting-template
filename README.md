@@ -28,24 +28,24 @@ This project is a boilerplate for quickly starting a Next.js application with in
 
 ## 📦 Installation
 
-1. **Clone the Repository**:
+1. **Create Project**:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+   npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template
    ```
 
-2. **Install Dependencies**:
+2. **Configure Environment**:
    ```bash
    npm install
    ```
 
-3. **Prepare Environment Variables**:  
+3. **Configure Environment Variables**:  
    Copy the `.env.example` file to `.env.local`:
    ```bash
    cp .env.example .env.local
    ```
 
    Update the placeholders in `.env.local` after setting up your Supabase project (explained in the **Configuration** section).
+
 
 4. **Run the Development Server**:
    ```bash
