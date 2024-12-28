@@ -44,13 +44,15 @@ export async function updateSession(request: NextRequest) {
     const url = request.nextUrl.clone();
     if (!user) {
       url.pathname = "/login";
-      url.searchParams.set("error", "no logout before login");
+      url.searchParams.set("error", "already_logged_out");
       return NextResponse.redirect(url);
     }
 
     const { error } = await supabase.auth.signOut();
     if (error) {
-      url.pathname = "/error" + error;
+      url.pathname = "/error";
+      url.searchParams.set("error", error.toString());
+
       return NextResponse.redirect(url);
     }
     // Redirect after successful logout
@@ -65,12 +67,15 @@ export async function updateSession(request: NextRequest) {
     !request.nextUrl.pathname.startsWith("/login") &&
     !request.nextUrl.pathname.startsWith("/signup") &&
     !request.nextUrl.pathname.startsWith("/auth") &&
-    // Allow homepage access
-    request.nextUrl.pathname !== "/"
+    // Allow homepage and documentation access
+    request.nextUrl.pathname !== "/" &&
+    !request.nextUrl.pathname.startsWith("/documentation")
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone();
     url.pathname = "/login";
+    url.searchParams.set("error", "login_first");
+
     return NextResponse.redirect(url);
   }
 
