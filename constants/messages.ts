@@ -112,6 +112,8 @@ export const authErrorMessages: { [key: string]: string } = {
     "Some user fields cannot be updated due to SSO restrictions.",
   validation_failed: "The provided parameters are not in the expected format.",
   weak_password: "The password is too weak. Please choose a stronger password.",
+  login_first: "To view this page you must login first.",
+  already_logged_out: "You are already logged out.",
 };
 
 export const successMessages: { [key: string]: string } = {
@@ -119,5 +121,4 @@ export const successMessages: { [key: string]: string } = {
   logout_success: "Your have successfully logged out.",
   password_reset: "Your password has been reset successfully.",
   account_created: "Your account has been created successfully.",
-  // Add more success codes and messages as needed
 };

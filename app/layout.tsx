@@ -1,6 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
+import { MessageProvider } from "@/context/MessagesProvider";
+import { MessageHandler } from "@/components/shared/message-handler";
 
 export const metadata: Metadata = {
   title: "NextJS + Supabase + Shadcn starting template",
@@ -15,7 +17,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <MessageProvider>
+          <MessageHandler />
+          {children}
+        </MessageProvider>
+      </body>
     </html>
   );
 }
