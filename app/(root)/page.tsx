@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Github, Lock, Palette, Code, Timer, Settings } from "lucide-react";
 import Link from "next/link";
+import CodeBox from "@/components/landing/code-box";
 
 const LandingPage = () => {
   return (
@@ -31,12 +32,7 @@ const LandingPage = () => {
             </Button>{" "}
           </Link>
         </div>
-        <div className="bg-muted p-4 rounded-lg max-w-xl mx-auto">
-          <code className="text-sm">
-            npx create-next-app -e
-            https://github.com/karloversic/nextjs-supabase-shadcn-starting-template
-          </code>
-        </div>
+        <CodeBox command="npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template" />
       </header>
 
       {/* Features Section */}
@@ -193,22 +189,19 @@ const LandingPage = () => {
               <CardTitle>1. Create Project</CardTitle>
             </CardHeader>
             <CardContent>
-              <code className="bg-background p-2 rounded block dark:bg-neutral-800">
-                npx create-next-app -e
-                https://github.com/karloversic/nextjs-supabase-shadcn-starting-template
-              </code>
+              <CodeBox
+                command="npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template"
+                useCard={false}
+              />
             </CardContent>
           </Card>
 
           <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle>2. Configure Environment</CardTitle>
+              <CardTitle>2. Configure Environment Variables</CardTitle>
             </CardHeader>
             <CardContent>
-              <code className="bg-background p-2 rounded block dark:bg-neutral-800">
-                cp .env.example .env.local
-                <br /># Update with your Supabase credentials
-              </code>
+              <CodeBox command="cp .env.example .env.local" useCard={false} />
             </CardContent>
           </Card>
 
@@ -217,9 +210,7 @@ const LandingPage = () => {
               <CardTitle>3. Launch</CardTitle>
             </CardHeader>
             <CardContent>
-              <code className="bg-background p-2 rounded block dark:bg-neutral-800">
-                npm run dev
-              </code>
+              <CodeBox command="npm run dev" useCard={false} />
             </CardContent>
           </Card>
         </div>
