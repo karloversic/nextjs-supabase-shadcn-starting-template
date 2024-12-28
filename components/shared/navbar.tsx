@@ -2,7 +2,7 @@
 
 import { Moon, Sun, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -14,7 +14,7 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const isDarkMode = window.matchMedia(
       "(prefers-color-scheme: dark)",
     ).matches;
@@ -22,8 +22,30 @@ const Navbar = () => {
     document.documentElement.classList.toggle("dark", isDarkMode);
   }, []);
 
+  const NavItems = () => (
+    <>
+      <Link href="/documentation">
+        <Button variant="ghost" className="dark:hover:bg-neutral-800" size="sm">
+          Docs
+        </Button>
+      </Link>
+      <Link href="/login">
+        <Button
+          variant="outline"
+          className="dark:border-neutral-700 dark:hover:bg-neutral-800"
+          size="sm"
+        >
+          Sign In
+        </Button>
+      </Link>
+      <Link href="/signup">
+        <Button size="sm">Sign Up</Button>
+      </Link>
+    </>
+  );
+
   return (
-    <nav className="border-b dark:border-neutral-800">
+    <nav className="sticky top-0 z-50 bg-background border-b dark:border-neutral-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
@@ -43,23 +65,14 @@ const Navbar = () => {
               ) : (
                 <Sun className="w-5 h-5" />
               )}
+              <span className="sr-only">Toggle theme</span>
             </Button>
-            <Link href="/documentation">
-              <Button variant="ghost" className="dark:hover:bg-neutral-800">
-                Documentation
-              </Button>
-            </Link>
-            <Link href="/login">
-              <Button
-                variant="outline"
-                className="dark:border-neutral-700 dark:hover:bg-neutral-800"
-              >
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button>Sign Up</Button>
-            </Link>
+            <div className="hidden sm:flex items-center gap-4">
+              <NavItems />
+            </div>
+            <div className="sm:hidden">
+              <Button size="sm">Sign In</Button>
+            </div>
           </div>
         </div>
       </div>

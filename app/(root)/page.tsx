@@ -3,51 +3,70 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Github, Lock, Palette, Code, Timer, Settings } from "lucide-react";
+import {
+  Github,
+  Lock,
+  Palette,
+  Code,
+  Timer,
+  Settings,
+  MessageSquare,
+} from "lucide-react";
 import Link from "next/link";
 import CodeBox from "@/components/landing/code-box";
+
+const responsiveText = (baseSize: string) =>
+  `text-${baseSize} sm:text-[calc(${baseSize}*1.1)] md:text-[calc(${baseSize}*1.2)] lg:text-[calc(${baseSize}*1.3)]`;
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
-      <header className="container mx-auto px-4 py-16 text-center">
-        <h1 className="text-5xl font-bold mb-6">Build Faster with Next.js</h1>
-        <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+      <header className="container mx-auto px-4 py-8 sm:py-16 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">
+          Build Faster with Next.js
+        </h1>
+        <p className="text-lg sm:text-xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto">
           A production-ready template combining the power of Next.js, Supabase
           Auth, and ShadCN/UI. Start building your next project in minutes, not
           hours.
         </p>
-        <div className="flex gap-4 justify-center mb-12">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 sm:mb-12">
           <Link href="https://github.com/karloversic/nextjs-supabase-shadcn-starting-template">
-            <Button className="gap-2" size="lg">
+            <Button className="w-full sm:w-auto gap-2" size="lg">
               <Github className="w-5 h-5" />
               Get Started
             </Button>
           </Link>
           <Link href="https://nextjs-supabase-shadcn-starting-template.vercel.app">
-            <Button variant="outline" size="lg" className="gap-2">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full sm:w-auto gap-2"
+            >
               <Code className="w-5 h-5" />
               View Demo
-            </Button>{" "}
+            </Button>
           </Link>
         </div>
         <CodeBox command="npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template" />
       </header>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">🚀 Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="container mx-auto px-4 py-8 sm:py-16">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+          🚀 Features
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className={responsiveText("lg")}>
                 <Lock className="w-5 h-5" />
                 Authentication
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
                 Secure authentication with email/password and social logins.
                 Powered by Supabase for reliable, scalable auth.
               </p>
@@ -56,13 +75,13 @@ const LandingPage = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className={responsiveText("lg")}>
                 <Palette className="w-5 h-5" />
                 Beautiful UI
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
                 Stunning light and dark themes with ShadCN/UI. Fully
                 customizable components for any design needs.
               </p>
@@ -71,15 +90,30 @@ const LandingPage = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className={responsiveText("lg")}>
                 <Timer className="w-5 h-5" />
                 Time-Saving
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
                 Skip the setup hassle. Get straight to building with
                 pre-configured routing, auth, and styling.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className={responsiveText("lg")}>
+                <MessageSquare className="w-5 h-5" />
+                Message Handling
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+                Real-time messaging support with efficient state management for
+                seamless communication in your application.
               </p>
             </CardContent>
           </Card>
@@ -87,56 +121,68 @@ const LandingPage = () => {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="container mx-auto px-4 py-16 bg-muted/50">
-        <h2 className="text-3xl font-bold text-center mb-12">🛠️ Powered By</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
+      <section className="container mx-auto px-4 py-8 sm:py-16 bg-muted/50">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+          🛠️ Powered By
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">
           <Card className="text-center">
             <CardHeader>
-              <CardTitle>Next.js 14</CardTitle>
+              <CardTitle className={responsiveText("lg")}>Next.js 14</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">React Framework</p>
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+                React Framework
+              </p>
             </CardContent>
           </Card>
 
           <Card className="text-center">
             <CardHeader>
-              <CardTitle>Supabase</CardTitle>
+              <CardTitle className={responsiveText("lg")}>Supabase</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Auth & Database</p>
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+                Auth & Database
+              </p>
             </CardContent>
           </Card>
 
           <Card className="text-center">
             <CardHeader>
-              <CardTitle>ShadCN/UI</CardTitle>
+              <CardTitle className={responsiveText("lg")}>ShadCN/UI</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">UI Components</p>
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+                UI Components
+              </p>
             </CardContent>
           </Card>
 
           <Card className="text-center">
             <CardHeader>
-              <CardTitle>Tailwind</CardTitle>
+              <CardTitle className={responsiveText("lg")}>Tailwind</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">Styling</p>
+              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+                Styling
+              </p>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* Why Choose Us Section  */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">
+      <section className="container mx-auto px-4 py-8 sm:py-16">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
           💡 Why Choose This Template?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
           <Card>
             <CardHeader>
-              <CardTitle>Production Ready</CardTitle>
+              <CardTitle className={responsiveText("lg")}>
+                Production Ready
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
@@ -158,7 +204,9 @@ const LandingPage = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>Developer Experience</CardTitle>
+              <CardTitle className={responsiveText("lg")}>
+                Developer Experience
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
@@ -181,12 +229,16 @@ const LandingPage = () => {
       </section>
 
       {/* Quick Start Section  */}
-      <section className="container mx-auto px-4 py-16 bg-muted/50 dark:bg-neutral-900/50">
-        <h2 className="text-3xl font-bold text-center mb-12">⚡ Quick Start</h2>
+      <section className="container mx-auto px-4 py-8 sm:py-16 bg-muted/50 dark:bg-neutral-900/50">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+          ⚡ Quick Start
+        </h2>
         <div className="max-w-2xl mx-auto space-y-4">
           <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle>1. Create Project</CardTitle>
+              <CardTitle className={responsiveText("lg")}>
+                1. Create Project
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <CodeBox
@@ -198,7 +250,9 @@ const LandingPage = () => {
 
           <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle>2. Configure Environment Variables</CardTitle>
+              <CardTitle className={responsiveText("lg")}>
+                2. Configure Environment Variables
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <CodeBox command="cp .env.example .env.local" useCard={false} />
@@ -207,7 +261,7 @@ const LandingPage = () => {
 
           <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle>3. Launch</CardTitle>
+              <CardTitle className={responsiveText("lg")}>3. Launch</CardTitle>
             </CardHeader>
             <CardContent>
               <CodeBox command="npm run dev" useCard={false} />
@@ -217,19 +271,23 @@ const LandingPage = () => {
       </section>
 
       {/* Github Star Section  */}
-      <section className="container mx-auto px-4 py-16">
+      <section className="container mx-auto px-4 py-8 sm:py-16">
         <Card className="max-w-4xl mx-auto bg-primary text-primary-foreground">
           <CardContent className="pt-6">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold mb-4">
                 Ready to Start Building?
               </h3>
-              <p className="mb-6">
+              <p className={`${responsiveText("sm")} text-muted/70 mb-4`}>
                 Get started with our template and build your next project
                 faster.
               </p>
               <Link href="https://github.com/karloversic/nextjs-supabase-shadcn-starting-template">
-                <Button size="lg" variant="secondary" className="gap-2">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="w-full sm:w-auto gap-2"
+                >
                   <Github className="w-5 h-5" />
                   Star on GitHub
                 </Button>
