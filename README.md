@@ -38,7 +38,8 @@ This project is a boilerplate for quickly starting a Next.js application with in
    npm install
    ```
 
-3. **Configure Environment Variables**:  
+3. **Configure Environment Variables**:
+
    Copy the `.env.example` file to `.env.local`:
    ```bash
    cp .env.example .env.local
