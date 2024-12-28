@@ -26,10 +26,10 @@ const Navbar = () => {
     <nav className="border-b dark:border-neutral-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Zap className="w-6 h-6" />
             <span className="font-bold text-xl">NextAuth Template</span>
-          </div>
+          </Link>
 
           <div className="flex items-center gap-4">
             <Button
@@ -44,7 +44,7 @@ const Navbar = () => {
                 <Sun className="w-5 h-5" />
               )}
             </Button>
-            <Link href="https://github.com/karloversic/nextjs-supabase-shadcn-starting-template">
+            <Link href="/documentation">
               <Button variant="ghost" className="dark:hover:bg-neutral-800">
                 Documentation
               </Button>
