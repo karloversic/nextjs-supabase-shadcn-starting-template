@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import { MessageProvider } from "@/context/MessagesProvider";
@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MessageProvider>
-          <MessageHandler />
+          <Suspense>
+            <MessageHandler /> 
+          </Suspense>
           {children}
         </MessageProvider>
       </body>
