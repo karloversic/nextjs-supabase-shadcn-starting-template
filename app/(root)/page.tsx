@@ -11,6 +11,8 @@ import {
   Timer,
   Settings,
   MessageSquare,
+  Shield,
+  Rocket,
 } from "lucide-react";
 import Link from "next/link";
 import CodeBox from "@/components/landing/code-box";
@@ -38,14 +40,14 @@ const LandingPage = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="https://nextjs-supabase-shadcn-starting-template.vercel.app">
+          <Link href="/documentation">
             <Button
               variant="outline"
               size="lg"
               className="w-full sm:w-auto gap-2"
             >
               <Code className="w-5 h-5" />
-              View Demo
+              View Documentation
             </Button>
           </Link>
         </div>
@@ -53,65 +55,62 @@ const LandingPage = () => {
       </header>
 
       {/* Features Section */}
-      <section className="container mx-auto px-4 py-8 sm:py-16">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
-          🚀 Features
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card>
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">🚀 Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
+              <CardTitle className="flex items-center gap-2">
                 <Lock className="w-5 h-5" />
                 Authentication
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+              <p className="text-muted-foreground">
                 Secure authentication with email/password and social logins.
                 Powered by Supabase for reliable, scalable auth.
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
+              <CardTitle className="flex items-center gap-2">
                 <Palette className="w-5 h-5" />
                 Beautiful UI
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+              <p className="text-muted-foreground">
                 Stunning light and dark themes with ShadCN/UI. Fully
                 customizable components for any design needs.
               </p>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
+              <CardTitle className="flex items-center gap-2">
                 <Timer className="w-5 h-5" />
                 Time-Saving
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+              <p className="text-muted-foreground">
                 Skip the setup hassle. Get straight to building with
                 pre-configured routing, auth, and styling.
               </p>
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
+              <CardTitle className="flex items-center gap-2">
                 <MessageSquare className="w-5 h-5" />
                 Message Handling
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
+              <p className="text-muted-foreground">
                 Real-time messaging support with efficient state management for
                 seamless communication in your application.
               </p>
@@ -173,15 +172,16 @@ const LandingPage = () => {
       </section>
 
       {/* Why Choose Us Section  */}
-      <section className="container mx-auto px-4 py-8 sm:py-16">
-        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
+      <section className="container mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-12">
           💡 Why Choose This Template?
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
-          <Card>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
-                Production Ready
+              <CardTitle className="flex items-center gap-2">
+                <Rocket className="w-5 h-5" />
+                Built for Performance
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -192,20 +192,21 @@ const LandingPage = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Settings className="w-4 h-4 text-green-500" />
-                  SEO best practices
+                  Performance optimized
                 </li>
                 <li className="flex items-center gap-2">
                   <Settings className="w-4 h-4 text-green-500" />
-                  Performance optimized
+                  Messages provider
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="dark:border-neutral-800">
             <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
-                Developer Experience
+              <CardTitle className="flex items-center gap-2">
+                <Shield className="w-5 h-5" />
+                Developer Focused
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -220,7 +221,7 @@ const LandingPage = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <Settings className="w-4 h-4 text-green-500" />
-                  Git hooks with Husky
+                  Middleware authentication
                 </li>
               </ul>
             </CardContent>
