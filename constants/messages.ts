@@ -120,5 +120,6 @@ export const successMessages: { [key: string]: string } = {
   login_success: "You have successfully logged in.",
   logout_success: "Your have successfully logged out.",
   password_reset: "Your password has been reset successfully.",
-  account_created: "Your account has been created successfully.",
+  account_created:
+    "Your account has been created successfully. Please confirm your account.",
 };
