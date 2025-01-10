@@ -55,31 +55,31 @@ const LandingPage = () => {
       {/* Features Section */}
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-12">🚀 Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             {
               icon: Lock,
               title: "Authentication",
               description:
-                "Secure authentication with email/password and social logins. Powered by Supabase for reliable, scalable auth.",
+                "Secure authentication with email/password and social logins via Supabase.",
             },
             {
               icon: Palette,
               title: "Beautiful UI",
               description:
-                "Stunning light and dark themes with ShadCN/UI. Fully customizable components for any design needs.",
+                "Stunning themes with ShadCN/UI. Fully customizable components.",
             },
             {
               icon: Timer,
               title: "Time-Saving",
               description:
-                "Skip the setup hassle. Get straight to building with pre-configured routing, auth, and styling.",
+                "Pre-configured routing, auth, and styling for rapid development.",
             },
             {
               icon: MessageSquare,
               title: "Message Handling",
               description:
-                "Real-time messaging support with efficient state management for seamless communication in your application.",
+                "Real-time messaging with efficient state management.",
             },
           ].map((feature, index) => (
             <Card key={index} className="border-border">
@@ -90,7 +90,9 @@ const LandingPage = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {feature.description}
+                </p>
               </CardContent>
             </Card>
           ))}
