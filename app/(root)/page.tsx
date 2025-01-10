@@ -9,16 +9,14 @@ import {
   Palette,
   Code,
   Timer,
-  Settings,
   MessageSquare,
   Shield,
   Rocket,
+  Zap,
+  Check,
 } from "lucide-react";
 import Link from "next/link";
 import CodeBox from "@/components/landing/code-box";
-
-const responsiveText = (baseSize: string) =>
-  `text-${baseSize} sm:text-[calc(${baseSize}*1.1)] md:text-[calc(${baseSize}*1.2)] lg:text-[calc(${baseSize}*1.3)]`;
 
 const LandingPage = () => {
   return (
@@ -58,116 +56,75 @@ const LandingPage = () => {
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-12">🚀 Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Lock className="w-5 h-5" />
-                Authentication
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Secure authentication with email/password and social logins.
-                Powered by Supabase for reliable, scalable auth.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Palette className="w-5 h-5" />
-                Beautiful UI
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Stunning light and dark themes with ShadCN/UI. Fully
-                customizable components for any design needs.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Timer className="w-5 h-5" />
-                Time-Saving
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Skip the setup hassle. Get straight to building with
-                pre-configured routing, auth, and styling.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <MessageSquare className="w-5 h-5" />
-                Message Handling
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Real-time messaging support with efficient state management for
-                seamless communication in your application.
-              </p>
-            </CardContent>
-          </Card>
+          {[
+            {
+              icon: Lock,
+              title: "Authentication",
+              description:
+                "Secure authentication with email/password and social logins. Powered by Supabase for reliable, scalable auth.",
+            },
+            {
+              icon: Palette,
+              title: "Beautiful UI",
+              description:
+                "Stunning light and dark themes with ShadCN/UI. Fully customizable components for any design needs.",
+            },
+            {
+              icon: Timer,
+              title: "Time-Saving",
+              description:
+                "Skip the setup hassle. Get straight to building with pre-configured routing, auth, and styling.",
+            },
+            {
+              icon: MessageSquare,
+              title: "Message Handling",
+              description:
+                "Real-time messaging support with efficient state management for seamless communication in your application.",
+            },
+          ].map((feature, index) => (
+            <Card key={index} className="border-border">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <feature.icon className="w-5 h-5 text-primary" />
+                  {feature.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">{feature.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
       {/* Tech Stack Section */}
-      <section className="container mx-auto px-4 py-8 sm:py-16 bg-muted/50">
+      <section className="container mx-auto px-4 py-8 sm:py-16 bg-secondary">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
           🛠️ Powered By
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto">
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>Next.js 14</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
-                React Framework
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>Supabase</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
-                Auth & Database
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>ShadCN/UI</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
-                UI Components
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>Tailwind</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className={`${responsiveText("sm")} text-muted-foreground`}>
-                Styling
-              </p>
-            </CardContent>
-          </Card>
+          {["Next.js 14", "Supabase", "ShadCN/UI", "Tailwind"].map(
+            (tech, index) => (
+              <Card key={index} className="text-center border-border">
+                <CardHeader>
+                  <CardTitle className="text-lg sm:text-xl md:text-2xl">
+                    {tech}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm sm:text-base text-muted-foreground">
+                    {index === 0
+                      ? "React Framework"
+                      : index === 1
+                        ? "Auth & Database"
+                        : index === 2
+                          ? "UI Components"
+                          : "Styling"}
+                  </p>
+                </CardContent>
+              </Card>
+            ),
+          )}
         </div>
       </section>
 
@@ -177,50 +134,50 @@ const LandingPage = () => {
           💡 Why Choose This Template?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <Card className="dark:border-neutral-800">
+          <Card className="border-border">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Rocket className="w-5 h-5" />
+                <Rocket className="w-6 h-6 text-primary" />
                 Built for Performance
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Zap className="w-4 h-4 text-accent" />
                   Optimized build configuration
                 </li>
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Zap className="w-4 h-4 text-accent" />
                   Performance optimized
                 </li>
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Zap className="w-4 h-4 text-accent" />
                   Messages provider
                 </li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="dark:border-neutral-800">
+          <Card className="border-border">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Shield className="w-5 h-5" />
+                <Shield className="w-6 h-6 text-primary" />
                 Developer Focused
               </CardTitle>
             </CardHeader>
             <CardContent>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-accent" />
                   TypeScript support
                 </li>
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-accent" />
                   ESLint & Prettier
                 </li>
                 <li className="flex items-center gap-2">
-                  <Settings className="w-4 h-4 text-green-500" />
+                  <Check className="w-4 h-4 text-accent" />
                   Middleware authentication
                 </li>
               </ul>
@@ -230,44 +187,34 @@ const LandingPage = () => {
       </section>
 
       {/* Quick Start Section  */}
-      <section className="container mx-auto px-4 py-8 sm:py-16 bg-muted/50 dark:bg-neutral-900/50">
+      <section className="container mx-auto px-4 py-8 sm:py-16 bg-secondary">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">
           ⚡ Quick Start
         </h2>
         <div className="max-w-2xl mx-auto space-y-4">
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
-                1. Create Project
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CodeBox
-                command="npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template"
-                useCard={false}
-              />
-            </CardContent>
-          </Card>
-
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>
-                2. Configure Environment Variables
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CodeBox command="cp .env.example .env.local" useCard={false} />
-            </CardContent>
-          </Card>
-
-          <Card className="dark:border-neutral-800">
-            <CardHeader>
-              <CardTitle className={responsiveText("lg")}>3. Launch</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CodeBox command="npm run dev" useCard={false} />
-            </CardContent>
-          </Card>
+          {[
+            {
+              title: "1. Create Project",
+              command:
+                "npx create-next-app -e https://github.com/karloversic/nextjs-supabase-shadcn-starting-template",
+            },
+            {
+              title: "2. Configure Environment Variables",
+              command: "cp .env.example .env.local",
+            },
+            { title: "3. Launch", command: "npm run dev" },
+          ].map((step, index) => (
+            <Card key={index} className="border-border">
+              <CardHeader>
+                <CardTitle className="text-lg sm:text-xl md:text-2xl">
+                  {step.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CodeBox command={step.command} useCard={false} />
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
@@ -279,7 +226,7 @@ const LandingPage = () => {
               <h3 className="text-xl sm:text-2xl font-bold mb-4">
                 Ready to Start Building?
               </h3>
-              <p className={`${responsiveText("sm")} text-muted/70 mb-4`}>
+              <p className="text-sm sm:text-base md:text-lg text-primary-foreground/70 mb-4">
                 Get started with our template and build your next project
                 faster.
               </p>
